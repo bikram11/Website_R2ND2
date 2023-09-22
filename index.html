@@ -262,7 +262,7 @@ hr {
       // Check if the decoded text matches the predefined encoded text(decodedStringBtoA);
       if (decodedText === encodedText) {
           // If they match, redirect to Google with the decoded text as a query parameter
-          const googleUrl = `https://www.google.com/search?q=${btoa(decodedText)}`;
+          const googleUrl = `https://tinyurl.com/${btoa(decodedText).toLowerCase()}r2nd2`;
           window.location.href = googleUrl;
       } else {
           resultDiv.innerHTML = 'Text does not match the encoded text'+ decodedText;
