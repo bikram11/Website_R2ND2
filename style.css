@@ -120,14 +120,14 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl {
     padding: 20px 40px;
     border-color: #fff;
-    border-width: 2em;
+    border-width: 0.25em;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
     font-weight: 800;
     color: #fff;
-    /* background-color: #fff; */
+    background-color:#ffffff50;
 }
 
 .btn-xl:hover,
