@@ -22,45 +22,35 @@ $('.navbar-collapse ul li a').click(function() {
 });
     </script>
 
-    <script>
+<script>
+  // Get references to the form elements
+  const emailInput = document.getElementById('email');
+  const agreeCheckbox = document.getElementById('agree');
+  const submitButton = document.getElementById('submitBtn');
 
-function updateCSSClass(a, b) {
+  // Add event listeners for input and change events
+  emailInput.addEventListener('input', validateForm);
+  agreeCheckbox.addEventListener('change', validateForm);
 
-}
+  // Function to validate the form
+  function validateForm() {
+      const isValidEmail = isValidEmailAddress(emailInput.value);
+      const isCheckboxChecked = agreeCheckbox.checked;
 
-function checkfnlname(field) {
-  curr = document.getElementById(field).value;
-  if (curr.length > 0) {
-    updateCSSClass(field, 1);
-    return true;
-  } else {
-    updateCSSClass(field, 0);
-    return false;
-  }
-}
-window.onload = function () {
-  var btnSubmit = document.getElementById('submit');
-  // disable submit
-  btnSubmit.setAttribute('disabled', 'disabled');
-
-  // attach the keyup event to each input
-  [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).forEach(function (element, index) {
-    element.addEventListener('keyup', function (e) {
-      // compute the number of invalid fields
-      var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, index) {
-        return !checkfnlname(element.id);
-      });
-      if (invalidFields.length == 0 && $('#checkbox_data').is(":checked")) {
-        // reenable the submit if n. of invalid inputs is 0
-        btnSubmit.removeAttribute('disabled');
+      if (isValidEmail && isCheckboxChecked) {
+          submitButton.disabled = false;
       } else {
-        // disable submit because there are invalid inputs
-        btnSubmit.setAttribute('disabled', 'disabled');
+          submitButton.disabled = true;
       }
-    }, false);
-  });
-}
-    </script>
+  }
+
+  // Function to validate an email address
+  function isValidEmailAddress(email) {
+      // This is a simple email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
+</script>
 <style>
 body, html {
   height: 100%;
@@ -208,13 +198,13 @@ hr {
             </div>
             <div>
               <form action="http://www.google.com">
-                <input type="checkbox" name="checkbox" id="checkbox_data"> <b>I agree to the terms and conditions</b>
+                <input type="checkbox" name="agree" id="agree" value="checked"> <b>I agree to the terms and conditions</b>
                 <br>
                 <b>Enter your email:</b>
                 <input type="email" name="email" id="email"><br>
                 <br>
                 <br>
-                <input type="submit" value="Receive Download Link" id="submit" class="btn-download">
+                <input type="submit" value="Receive Download Link" id="submitBtn" class="btn-download">
             </form>
             </div>
           </div>
