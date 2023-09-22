@@ -243,7 +243,7 @@ hr {
 </script>
 <script>
   // Define the predefined encoded text
-  const encodedText = "textÛ6ÓmëzøÁê";
+  const encodedText = "textÛ";
 
   // Get references to the form and result elements
   const form = document.getElementById('myForm_reviewer');
@@ -254,7 +254,7 @@ hr {
       event.preventDefault(); // Prevent the default form submission behavior
 
       // Get the user's input text
-      const userInput = document.getElementById('textInput').value.toLowerCase()+"2023reviewer";
+      const userInput = document.getElementById('textInput').value.toLowerCase();
 
       // Decode the user's input text (you can use any decoding method you prefer)
       const decodedText = decodeText(userInput);
