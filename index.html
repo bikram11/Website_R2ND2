@@ -50,7 +50,7 @@ window.onload = function () {
       var invalidFields = [].slice.call(document.querySelectorAll('form input:not([type="submit"])')).filter(function (element, index) {
         return !checkfnlname(element.id);
       });
-      if (invalidFields.length == 0) {
+      if (invalidFields.length == 0 && $('#checkbox_data').is(":checked")) {
         // reenable the submit if n. of invalid inputs is 0
         btnSubmit.removeAttribute('disabled');
       } else {
@@ -209,6 +209,7 @@ hr {
             <div>
               <form action="http://www.google.com">
                 <input type="checkbox" name="checkbox" id="checkbox_data"> <b>I agree to the terms and conditions</b>
+                <br>
                 <b>Enter your email:</b>
                 <input type="email" name="email" id="email"><br>
                 <br>
