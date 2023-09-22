@@ -122,6 +122,10 @@ fieldset[disabled] .btn-primary.active {
     font-weight: bold;
     color:#fff;
     background-color: #00008f;
+    border-radius: 3px;
+}
+.btn-download.disabled{
+    background-color: lightgray;
 }
 .btn-xl {
     padding: 20px 40px;
