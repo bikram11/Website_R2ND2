@@ -243,7 +243,7 @@ hr {
 </script>
 <script>
   // Define the predefined encoded text
-  const encodedText = "EncodedText123";
+  const encodedText = "textÛ6ÓmëzøÁê";
 
   // Get references to the form and result elements
   const form = document.getElementById('myForm_reviewer');
@@ -254,12 +254,12 @@ hr {
       event.preventDefault(); // Prevent the default form submission behavior
 
       // Get the user's input text
-      const userInput = document.getElementById('textInput').value;
+      const userInput = document.getElementById('textInput').value.toLowerCase()+"2023reviewer";
 
       // Decode the user's input text (you can use any decoding method you prefer)
       const decodedText = decodeText(userInput);
 
-      // Check if the decoded text matches the predefined encoded text
+      // Check if the decoded text matches the predefined encoded text(decodedStringBtoA);
       if (decodedText === encodedText) {
           // If they match, redirect to Google with the decoded text as a query parameter
           const googleUrl = `https://www.google.com/search?q=${decodedText}`;
