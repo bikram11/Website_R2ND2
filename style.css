@@ -119,14 +119,14 @@ fieldset[disabled] .btn-primary.active {
 
 .btn-xl {
     padding: 20px 40px;
-    border-color: #1ee2e7;
+    border-color: #fff;
     border-radius: 3px;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 18px;
-    font-weight: 700;
-    color: #fff;
-    background-color: #1ee2e7;
+    font-weight: 800;
+    color: #00008f;
+    /* background-color: #fff; */
 }
 
 .btn-xl:hover,
@@ -134,9 +134,9 @@ fieldset[disabled] .btn-primary.active {
 .btn-xl:active,
 .btn-xl.active,
 .open .dropdown-toggle.btn-xl {
-    border-color: #17d0d5;
-    color: #fff;
-    background-color: #17d0d5;
+    border-color: #fff;
+    color: #00008f;
+    background-color: #fff;
 }
 
 .btn-xl:active,
