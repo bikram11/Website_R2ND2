@@ -124,7 +124,7 @@ fieldset[disabled] .btn-primary.active {
     background-color: #00008f;
     border-radius: 3px;
 }
-.btn-download.disabled{
+.btn-download[disabled]{
     background-color: lightgray;
 }
 .btn-xl {
