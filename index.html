@@ -173,15 +173,29 @@ hr {
                     <input type="email" id="email" name="email" required>
                     <div id="emailError" class="error-message"></div>
                 </div>
-    
+                <br><br>
                 <div>
                     <input type="checkbox" id="agree" name="agree" required>
                     <label for="agree">I agree to the terms and conditions</label>
                     <div id="agreeError" class="error-message"></div>
                 </div>
-    
+                <br><br>
                 <button type="submit" id="submitBtn" class="btn-download"disabled>Receive Download Link</button>
             </form>
+            <br><br><br>
+            <h2>OR</h2>
+            <br><br>
+            <form id="myForm_reviewer">
+              <div>
+                <label for="textInput">If you are the member of reviewer board, enter the short form of the journal name (Do not include IEEE)</label>
+                <input type="text" id="textInput" name="textInput" required>
+                <div id="result"></div>
+                <br><br>
+                
+              </div>
+              
+              <button type="submit" class="btn-download"disabled>Receive Download Link</button>
+          </form>
             </div>
           </div>
       </div>
@@ -197,7 +211,7 @@ hr {
   const agreeError = document.getElementById('agreeError');
 
   // Add event listeners for input and change events
-  emailInput.addEventListener('input', validateForm);
+  emailInput.addEventListener('input', validateForm);myForm_reviewer
   agreeCheckbox.addEventListener('change', validateForm);
 
   // Function to validate the form
@@ -229,6 +243,40 @@ hr {
       // This is a simple email validation regex
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
+  }
+</script>
+<script>
+  // Define the predefined encoded text
+  const encodedText = "EncodedText123";
+
+  // Get references to the form and result elements
+  const form = document.getElementById('myForm_reviewer');
+  const resultDiv = document.getElementById('result');
+
+  // Add a submit event listener to the form
+  form.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission behavior
+
+      // Get the user's input text
+      const userInput = document.getElementById('textInput').value;
+
+      // Decode the user's input text (you can use any decoding method you prefer)
+      const decodedText = decodeText(userInput);
+
+      // Check if the decoded text matches the predefined encoded text
+      if (decodedText === encodedText) {
+          // If they match, redirect to Google with the decoded text as a query parameter
+          const googleUrl = `https://www.google.com/search?q=${decodedText}`;
+          window.location.href = googleUrl;
+      } else {
+          resultDiv.innerHTML = 'Text does not match the encoded text.';
+      }
+  });
+
+  // Sample text decoding function (you can use your own decoding method)
+  function decodeText(encodedText) {
+      // In this example, we're using a simple base64 decoding
+      return atob(encodedText);
   }
 </script>
 </body>
