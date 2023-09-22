@@ -23,33 +23,46 @@ $('.navbar-collapse ul li a').click(function() {
     </script>
 
 <script>
-  // Get references to the form elements
-  const emailInput = document.getElementById('email');
-  const agreeCheckbox = document.getElementById('agree');
-  const submitButton = document.getElementById('submitBtn');
+       // Get references to the form elements
+       const emailInput = document.getElementById('email');
+        const agreeCheckbox = document.getElementById('agree');
+        const submitButton = document.getElementById('submitBtn');
 
-  // Add event listeners for input and change events
-  emailInput.addEventListener('input', validateForm);
-  agreeCheckbox.addEventListener('change', validateForm);
+        // Add event listeners for input and change events
+        emailInput.addEventListener('input', validateForm);
+        agreeCheckbox.addEventListener('change', validateForm);
 
-  // Function to validate the form
-  function validateForm() {
-      const isValidEmail = isValidEmailAddress(emailInput.value);
-      const isCheckboxChecked = agreeCheckbox.checked;
+        // Function to validate the form
+        function validateForm() {
+            const isValidEmail = isValidEmailAddress(emailInput.value);
+            const isCheckboxChecked = agreeCheckbox.checked;
 
-      if (isValidEmail && isCheckboxChecked) {
-          submitButton.disabled = false;
-      } else {
-          submitButton.disabled = true;
-      }
-  }
+            if (isValidEmail) {
+                emailInput.classList.remove('is-invalid');
+            } else {
+                emailInput.classList.add('is-invalid');
+            }
 
-  // Function to validate an email address
-  function isValidEmailAddress(email) {
-      // This is a simple email validation regex
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return emailRegex.test(email);
-  }
+            if (isCheckboxChecked) {
+                agreeCheckbox.classList.remove('is-invalid');
+            } else {
+                agreeCheckbox.classList.add('is-invalid');
+            }
+
+            if (isValidEmail && isCheckboxChecked) {
+                submitButton.disabled = false;
+            } else {
+                submitButton.disabled = true;
+            }
+        }
+
+        // Function to validate an email address
+        function isValidEmailAddress(email) {
+            // This is a simple email validation regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script
 </script>
 <style>
 body, html {
@@ -198,13 +211,13 @@ hr {
             </div>
             <div>
               <form action="http://www.google.com">
-                <input type="checkbox" name="agree" id="agree" value="checked"> <b>I agree to the terms and conditions</b>
+                <input type="checkbox"  class="form-check-input" id="agree" name="agree" required> <b>I agree to the terms and conditions</b>
                 <br>
                 <b>Enter your email:</b>
-                <input type="email" name="email" id="email"><br>
+                <input class="form-control" id="email" name="email" required><br>
                 <br>
                 <br>
-                <input type="submit" value="Receive Download Link" id="submitBtn" class="btn-download">
+                <input type="submit" value="Receive Download Link" id="submitBtn" class="btn-download" disabled>
             </form>
             </div>
           </div>
