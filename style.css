@@ -69,12 +69,12 @@ h6 {
 }
 
 .btn-primary {
-    border-color: #1ee2e7;
+    border-color: #fff;
     text-transform: uppercase;
     font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    font-weight: 800;
     color: #fff;
-    background-color: #1ee2e7;
+    /* background-color: #1ee2e7; */
 }
 
 .btn-primary:hover,
@@ -82,9 +82,9 @@ h6 {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-    border-color: #17d0d5;
-    color: #fff;
-    background-color: #17d0d5;
+    border-color: #fff;
+    color: #00008f;
+    background-color: #fff;
 }
 
 .btn-primary:active,
