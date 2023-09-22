@@ -186,14 +186,10 @@ hr {
             <h2>OR</h2>
             <br><br>
             <form id="myForm_reviewer">
-              <div>
                 <label for="textInput">If you are the member of reviewer board, enter the short form of the journal name (Do not include IEEE)</label>
                 <input type="text" id="textInput" name="textInput" required>
                 <div id="result"></div>
                 <br><br>
-                
-              </div>
-              
               <button type="submit" class="btn-download"disabled>Receive Download Link</button>
           </form>
             </div>
@@ -269,7 +265,7 @@ hr {
           const googleUrl = `https://www.google.com/search?q=${decodedText}`;
           window.location.href = googleUrl;
       } else {
-          resultDiv.innerHTML = 'Text does not match the encoded text.';
+          resultDiv.innerHTML = 'Text does not match the encoded text'+ decodedText;
       }
   });
 
