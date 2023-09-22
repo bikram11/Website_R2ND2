@@ -21,7 +21,6 @@ $('.navbar-collapse ul li a').click(function() {
     $('.navbar-toggle:visible').click();
 });
     </script>
-
 <style>
 body, html {
   height: 100%;
@@ -168,73 +167,69 @@ hr {
 
             </div>
             <div>
-              <div class="container mt-4">
-                <form id="myForm">
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" required>
-                        <div class="invalid-feedback">
-                            Please enter a valid email address.
-                        </div>
-                    </div>
-        
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="agree" name="agree" required>
-                        <label class="form-check-label" for="agree">I agree to the terms and conditions</label>
-                        <div class="invalid-feedback">
-                            You must agree to the terms and conditions.
-                        </div>
-                    </div>
-        
-                    <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Submit</button>
-                </form>
+              <form id="myForm">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <div id="emailError" class="error-message"></div>
+                </div>
+    
+                <div>
+                    <input type="checkbox" id="agree" name="agree" required>
+                    <label for="agree">I agree to the terms and conditions</label>
+                    <div id="agreeError" class="error-message"></div>
+                </div>
+    
+                <button type="submit" id="submitBtn" class="btn-download"disabled>Submit</button>
+            </form>
             </div>
           </div>
       </div>
 
   </div>
 </section>
-
 <script>
   // Get references to the form elements
   const emailInput = document.getElementById('email');
-   const agreeCheckbox = document.getElementById('agree');
-   const submitButton = document.getElementById('submitBtn');
+  const agreeCheckbox = document.getElementById('agree');
+  const submitButton = document.getElementById('submitBtn');
+  const emailError = document.getElementById('emailError');
+  const agreeError = document.getElementById('agreeError');
 
-   // Add event listeners for input and change events
-   emailInput.addEventListener('input', validateForm);
-   agreeCheckbox.addEventListener('change', validateForm);
+  // Add event listeners for input and change events
+  emailInput.addEventListener('input', validateForm);
+  agreeCheckbox.addEventListener('change', validateForm);
 
-   // Function to validate the form
-   function validateForm() {
-       const isValidEmail = isValidEmailAddress(emailInput.value);
-       const isCheckboxChecked = agreeCheckbox.checked;
+  // Function to validate the form
+  function validateForm() {
+      const isValidEmail = isValidEmailAddress(emailInput.value);
+      const isCheckboxChecked = agreeCheckbox.checked;
 
-       if (isValidEmail) {
-           emailInput.classList.remove('is-invalid');
-       } else {
-           emailInput.classList.add('is-invalid');
-       }
+      if (isValidEmail) {
+          emailError.textContent = '';
+      } else {
+          emailError.textContent = 'Please enter a valid email address.';
+      }
 
-       if (isCheckboxChecked) {
-           agreeCheckbox.classList.remove('is-invalid');
-       } else {
-           agreeCheckbox.classList.add('is-invalid');
-       }
+      if (isCheckboxChecked) {
+          agreeError.textContent = '';
+      } else {
+          agreeError.textContent = 'You must agree to the terms and conditions.';
+      }
 
-       if (isValidEmail && isCheckboxChecked) {
-           submitButton.disabled = false;
-       } else {
-           submitButton.disabled = true;
-       }
-   }
+      if (isValidEmail && isCheckboxChecked) {
+          submitButton.disabled = false;
+      } else {
+          submitButton.disabled = true;
+      }
+  }
 
-   // Function to validate an email address
-   function isValidEmailAddress(email) {
-       // This is a simple email validation regex
-       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-       return emailRegex.test(email);
-   }
+  // Function to validate an email address
+  function isValidEmailAddress(email) {
+      // This is a simple email validation regex
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+  }
 </script>
 </body>
 </html>
