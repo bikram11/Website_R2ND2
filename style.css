@@ -850,12 +850,12 @@ ul.social-buttons li a:active {
 
 ::-moz-selection {
     text-shadow: none;
-    background: #00008f;
+    background: #ffeb3b96;
 }
 
 ::selection {
     text-shadow: none;
-    background:  #00008f;
+    background:  #ffeb3b96;
 }
 
 img::selection {
