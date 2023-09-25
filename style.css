@@ -877,7 +877,7 @@ body {
     overflow: hidden;
   }
   .team .profile-wrapper .profiles {
-    height: 341px;
+    /* height: 341px; */
     background-color: white;
     border-radius: 5px;
   }
